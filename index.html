@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>יראל כברה | יועץ ומאמן לכלכלת המשפחה</title>
+<meta name="description" content="יראל כברה - יועץ ומאמן לכלכלת המשפחה. הפכו את הגירעון להון, סגרו את המינוס, והתחילו לחסוך בצורה יציבה."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>(function(){emailjs.init("hTTpFapqMLTz4irGW");}());</script>
+<style>
+/*──────────────────────────────────────────────
+  DESIGN SYSTEM
+──────────────────────────────────────────────*/
+:root {
+  --ink:       #0a0a08;
+  --ink-2:     #1a1a16;
+  --ink-3:     #2c2c26;
+  --smoke:     #F6F7F7;
+  --cream:    #F6F7F7;
+  --paper:     #ffffff;
+  --gold:     #6924E8 ;
+  --gold-2:    #BAA8E5;
+  --gold-pale: #f0e4c2;
+  --muted:     #7a7870;
+  --border:    rgba(10,10,8,.10);
+  --border-2:  rgba(10,10,8,.06);
+
+ --serif: 'Varela Round', sans-serif;
+--sans:  'Varela Round', sans-serif;
+
+  --max: 1100px;
+  --pad: clamp(20px, 5vw, 60px);
+  --r: 4px;
+  --r-lg: 12px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/*──────────────────────────────────────────────
+  RESET + BASE
+──────────────────────────────────────────────*/
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;direction:rtl;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+button{font-family:var(--sans);cursor:pointer;border:none;background:none}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:#375D81;border-radius:2px}
+::selection{background:var(--gold-pale);color:var(--ink)}
+
+/* Better focus visibility (doesn't change font) */
+:focus-visible{outline:3px solid rgba(184,149,58,.55);outline-offset:3px;border-radius:6px}
+
+/*──────────────────────────────────────────────
+  LANDSCAPE BLOCK
+──────────────────────────────────────────────*/
+.landscape-block{
+  position:fixed;inset:0;display:none;
+  align-items:center;justify-content:center;
+  background:var(--cream);z-index:99999;padding:32px;
+}
+.lb-inner{
+  text-align:center;max-width:380px;
+  border:1px solid var(--border);
+  background:var(--paper);
+  border-radius:var(--r-lg);
+  padding:40px 32px;
+}
+.lb-icon{font-size:36px;margin-bottom:16px}
+.lb-h{font-family:var(--serif);font-size:24px;margin-bottom:10px}
+.lb-p{font-size:14px;color:var(--muted);line-height:1.8}
+@media(orientation:landscape)and(max-width:980px){
+  body{overflow:hidden}
+  .landscape-block{display:flex}
+}
+
+/*──────────────────────────────────────────────
+  NOISE TEXTURE OVERLAY
+──────────────────────────────────────────────*/
+body::before{
+  content:'';
+  position:fixed;inset:0;pointer-events:none;z-index:9999;
+  opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/*──────────────────────────────────────────────
+  HEADER
+──────────────────────────────────────────────*/
+header{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  background:transparent;
+  border:none;
+  z-index:1000; /* 👈 זה מה שחסר */
+}
+.hdr{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0 var(--pad);
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}.logo-wrap{display:flex;align-items:center;gap:14px}
+.logo-wrap img{height:54px;width:auto}
+.brand-name{
+  font-family:var(--serif);font-size:18px;
+  color:#ffffff;line-height:1.2;
+}
+.brand-sub{font-size:12px;color:#ffffff;font-weight:500;letter-spacing:.04em;margin-top:2px}
+nav{display:flex;align-items:center;gap:10px}
+
+/* BUTTON SYSTEM */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 22px;
+  border-radius:var(--r);
+  font-size:14px;
+  font-weight:600;
+  letter-spacing:.01em;
+  white-space:nowrap;
+  -webkit-tap-highlight-color:transparent;
+
+  position:relative;
+  overflow:hidden;
+
+  transition:
+    background-color .22s var(--ease-out),
+    color .22s var(--ease-out),
+    border-color .22s var(--ease-out),
+    box-shadow .22s var(--ease-out);
+}
+
+.btn-ghost{
+  color:#ffffff;
+  background:#375D81;
+  border:1px solid #183152;
+}
+
+.btn-ghost:hover{
+  background:#EAEBEB;
+  border-color:#183152;
+  color:#183152;
+}
+
+.btn-gold{
+  background:#183152;
+  color:#ffffff;
+  border:1px solid #183152;
+}
+
+.btn-gold::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,transparent 40%,rgba(184,149,58,.3) 100%);
+  opacity:0;
+  transition:opacity .25s;
+  pointer-events:none;
+}
+
+.btn-gold:hover{
+  background:#1a1a16;
+  box-shadow:0 8px 24px rgba(10,10,8,.22);
+}
+
+.btn-gold:hover::after{
+  opacity:1;
+}
+
+.btn-lg{
+  padding:15px 36px;
+  font-size:15px;
+  font-weight:700;
+  border-radius:var(--r);
+}
+/*──────────────────────────────────────────────
+  WHATSAPP FAB
+──────────────────────────────────────────────*/
+.wa-fab{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:999;
+
+  background:#25D366;
+  color:#ffffff;
+
+  padding:8px 14px;      /* היה גדול יותר */
+  border-radius:999px;
+
+  font-size:13px;        /* היה גדול יותר */
+  font-weight:600;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  text-decoration:none;
+white-space:normal;
+text-align:center;
+}
+/*──────────────────────────────────────────────
+  LAYOUT
+──────────────────────────────────────────────*/
+.container{max-width:95%;margin:0 auto;padding:0 var(--pad)}
+section{padding:-70px 0}
+
+/*──────────────────────────────────────────────
+  SECTION LABEL (eyebrow)
+──────────────────────────────────────────────*/
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:18px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.eyebrow-line{
+  width:28px;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  display:block;
+}
+
+/*──────────────────────────────────────────────
+  TYPOGRAPHY SCALE
+──────────────────────────────────────────────*/
+.display-xl{
+  font-family:var(--serif);
+  font-size:clamp(44px,7.5vw,88px);
+  line-height:.97;letter-spacing:-.03em;
+  color:var(--ink);
+}
+.display-lg{
+  font-family:var(--serif);
+  font-size:clamp(32px,4.8vw,58px);
+  line-height:1.05;letter-spacing:-.025em;
+  color:var(--ink);
+}
+.display-md{
+  font-family:var(--serif);
+  font-size:clamp(24px,3.2vw,38px);
+  line-height:1.12;letter-spacing:-.02em;
+  color:var(--ink);
+}
+.body-lg{font-size:17px;line-height:1.85;color:var(--muted);font-weight:400}
+.body-md{font-size:15px;line-height:1.8;color:var(--muted)}
+.body-sm{font-size:13.5px;line-height:1.75;color:var(--muted)}
+.ink{color:var(--ink)!important}
+.gold{color:var(--gold)!important}
+.semibold{font-weight:600}
+.bold{font-weight:700}
+
+/*──────────────────────────────────────────────
+  DIVIDER
+──────────────────────────────────────────────*/
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent);
+  margin:0;
+}
+
+/*──────────────────────────────────────────────
+  SCROLL REVEAL
+──────────────────────────────────────────────*/
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal-left.in{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(24px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal-right.in{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.08s}
+.d2{transition-delay:.18s}
+.d3{transition-delay:.28s}
+.d4{transition-delay:.38s}
+.d5{transition-delay:.48s}
+
+/*────────────/*──────────────────────────────────────────────
+  HERO SECTION
+──────────────────────────────────────────────*/
+#hero{
+margin-bottom:0;
+ padding-top:50px;
+  background:var(--ink);
+  position:relative;
+  overflow:hidden;
+  min-height:85svh;
+  display:flex;
+  flex-direction:column;
+}
+
+.hero-bg-lines{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+
+.hero-bg-glow{
+  position:absolute;
+  width:70vw;
+  height:70vw;
+  max-width:900px;
+  max-height:900px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(184,149,58,.12) 0%,transparent 65%);
+  top:-20%;
+  left:-15%;
+  pointer-events:none;
+}
+
+.hero-bg-glow-2{
+  position:absolute;
+  width:50vw;
+  height:50vw;
+  max-width:600px;
+  max-height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(212,170,71,.07) 0%,transparent 70%);
+  bottom:-10%;
+  right:0%;
+  pointer-events:none;
+}
+
+.hero-container{
+  width:100%;
+  max-width:100%;
+  margin:0;
+  padding:0;
+  flex:1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(320px,42vw);
+  gap:0;
+  align-items:stretch;
+  position:relative;
+  z-index:1;
+}
+
+.hero-left{
+margin-right:-10px;
+padding-top:120px;
+  padding:80px 60px 80px 60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 14px;
+  border:1px solid rgba(184,149,58,.4);
+  border-radius:100px;
+  background:rgba(184,149,58,.08);
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#000000;
+  margin-bottom:28px;
+  width:fit-content;
+}
+
+.hero-badge-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--gold-2);
+  animation:pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:.4;transform:scale(.6)}
+}
+
+.hero-title{
+  font-family:var(--serif);
+  font-size:clamp(40px,6vw,60px);
+  line-height:.96;
+  letter-spacing:-.03em;
+  color:#183152;
+  margin-bottom:10px;
+white-space:nowrap;
+}
+
+.hero-title em{
+  font-style:italic;
+  color:#183152;
+}
+
+.hero-subtitle {
+  font-size: clamp(22px, 1.8vw, 20px);
+  font-weight: 700;
+ color:#375D81;
+  margin-bottom: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.hero-sub-p{
+  font-size:18px;
+  line-height:1.9;
+  color:#000000;
+  font-weight:400;
+  max-width:58ch;
+  margin-bottom:26px;
+}
+
+.hero-cta{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.btn-hero{
+  padding:15px 24px;
+  font-size:16px;
+  font-weight:700;
+  border-radius:var(--r);
+background:#183152; /* ירוק */
+  color:#FFFFFF;
+  border:none;
+  box-shadow:0 8px 28px rgba(184,149,58,.35);
+  transition:all .25s var(--ease-out);
+}
+
+.btn-hero:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 38px rgba(184,149,58,.48);
+}
+
+.btn-hero-ghost{
+  padding:14px 28px;
+  font-size:16px;
+  font-weight:600;
+  border-radius:var(--r);
+  border:1px solid rgba(255,255,255,.18);
+  color:#FFFFFF;
+  background:#375D81;
+  transition:all .22s;
+}
+
+.btn-hero-ghost:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.3);
+}
+
+.hero-stats{
+  margin-top:48px;
+  padding-top:36px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  gap:40px;
+}
+
+.hero-stat-item{}
+
+.hero-stat-num{
+align-items:center;
+text-align:center;
+  font-family:'DM Serif Display', serif;
+  font-size:40px;
+  color:#183152;
+  line-height:1;
+  margin-bottom:4px;
+}
+
+.hero-stat-lbl{
+  font-size:16px;
+  color:#000000;
+  font-weight:500;
+}
+
+/* Hero right – photo area */
+.hero-right{
+ margin-left:-10px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  min-width:0;
+}
+
+.hero-photo-frame{
+  position:relative;
+  z-index:2;
+  flex:1;
+  min-height:100%;
+}
+
+.hero-photo-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(0.87);
+}
+
+.hero-photo-caption{
+  position:absolute;
+  bottom:28px;
+  right:20px;
+  left:20px;
+  z-index:3;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;   /* מרכז */
+  text-align:center;    /* טקסט באמצע */
+
+background:#375D81;
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r-lg);
+  padding:16px 18px;
+}
+
+.hpc-name{
+  font-family:var(--serif);
+  font-size:23px;
+  color:var(--cream);
+  margin-bottom:2px;
+}
+
+.hpc-role{
+  font-size:17px;
+  color:rgba(250,248,243,.55);
+  font-weight:500;
+  letter-spacing:.06em;
+}
+
+.hero-gold-line{
+  display:none;
+}
+/*──────────────────────────────────────────────
+  TICKER STRIP
+──────────────────────────────────────────────*/
+.ticker {
+  overflow: hidden;
+  direction: ltr; /* חובה לאנימציה תקינה גם ב-RTL */
+  width: 100%;
+  background:#ABC8E2;
+  padding: 30px 0;
+  height: 84px;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 100%;
+  animation: ticker-marquee 30s linear infinite;
+  will-change: transform;
+}
+
+.ticker-block {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  white-space: nowrap;
+  padding-right: 36px; /* מרווח בין סוף בלוק להתחלת השכפול */
+}
+
+.ticker-block span {
+  flex: 0 0 auto;
+  font-size: 35px;
+  font-weight: 700;
+  color: #183152;
+}
+
+.ticker-sep {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1F6F5F;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes ticker-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* -50% ולא -100% */
+}
+/*──────────────────────────────────────────────
+  URGENCY SECTION
+──────────────────────────────────────────────*/
+#urgency{
+  background:var(--ink);
+  padding:40px 0;
+  position:relative;
+  overflow:visible;
+
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+
+  background-size:72px 72px;
+}
+#urgency::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+
+  background:
+    radial-gradient(circle at 10% 50%,rgba(184,149,58,.09) 0%,transparent 50%),
+    radial-gradient(circle at 90% 20%,rgba(184,149,58,.06) 0%,transparent 48%);
+}
+.urgency-grid{display:grid;grid-template-columns:1fr ;gap:64px;align-items:center}
+.urgency-left{
+  text-align:center;
+}.urgency-quote{
+  position:relative;
+  padding:32px 36px;
+  background:var(--ink);
+  border-radius:var(--r-lg);
+  margin-top:6px;
+  background: linear-gradient(135deg, rgba(10,10,8,.92), rgba(10,10,8,.72));
+  border: 1px solid rgba(184,149,58,.18);
+  box-shadow: 0 22px 60px rgba(10,10,8,.22);
+}
+.urgency-quote::before{
+  content:'"';
+  position:absolute;top:-30px;right:20px;
+  font-family:var(--serif);font-size:120px;
+  color:var(--gold);opacity:.78;line-height:1;
+}
+.urgency-quote p{
+  font-size:16px;line-height:1.9;
+  color:rgba(250,248,243,.78);
+  font-weight:400;font-style:italic;
+}
+.urgency-quote-by{
+  margin-top:16px;
+  font-size:12px;font-weight:700;
+  letter-spacing:.10em;text-transform:uppercase;
+  color: var(--gold);
+}
+.urgency-right{
+  display:flex;flex-direction:column;gap:20px;
+}
+.ucard{
+  padding:24px 26px;
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  display:flex;gap:18px;align-items:flex-start;
+  transition:all .25s var(--ease-out);
+  box-shadow: 0 16px 40px rgba(10,10,8,.06);
+  border: 1px solid rgba(10,10,8,.08);
+}
+.ucard:hover{border-color:rgba(184,149,58,.35);box-shadow:0 12px 36px rgba(10,10,8,.08);transform:translateX(-4px)}
+.ucard-icon{
+  width:44px;height:44px;border-radius:var(--r);flex-shrink:0;
+  background:var(--smoke);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(10,10,8,.10);
+  border-color: rgba(184,149,58,.25);
+}
+.ucard-h{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.4}
+.ucard-p{font-size:13.5px;color:var(--muted);line-height:1.7}
+
+/*──────────────────────────────────────────────
+  BENEFITS SECTION (Consulting rows)
+──────────────────────────────────────────────*/
+#benefits{
+  background:var(--ink);
+padding:10px 0 50px;
+  position:relative;
+  overflow:visible;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px;
+}
+
+#benefits::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 10% 50%,rgba(184,149,58,.09) 0%,transparent 50%),
+    radial-gradient(circle at 90% 20%,rgba(184,149,58,.06) 0%,transparent 48%);
+}
+
+.benefits-header{
+  text-align:center;
+  margin-bottom:64px;
+}
+
+.benefits-header .display-lg{
+  color:var(--cream);
+}
+
+.benefits-rows{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  column-gap:42px;
+  row-gap:200px;
+  margin-top:190px;
+  align-items:start;
+}
+
+/* כל בלוק */
+.brow{
+  position:relative;
+  width:100%;
+  max-width:460px;
+  justify-self:center;
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+
+.brow.in{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* הכרטיס האמצעי - שורה שנייה */
+.brow:nth-child(3){
+  grid-column:1 / -1;
+  max-width:460px;
+}
+
+/* תמונה */
+.brow-media{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:visible;
+  border:1px solid rgba(255,255,255,.08);
+  min-height:220px;
+  background:linear-gradient(135deg,#1a1a16,#2c2c26);
+  width:100%;
+}
+
+.brow-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 1.2s ease;
+}
+
+.brow.in .brow-media img{
+  transform:scale(1.06);
+}
+
+/* כרטיס מעל התמונה - ממורכז */
+.brow-card{
+  position:absolute;
+  top:-145px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+  background:#050505;
+  border:1px solid rgba(184,149,58,.25);
+  border-radius:20px;
+  padding:18px 22px;
+  width:min(280px, 86%);
+  transition:box-shadow .35s ease, border-color .35s ease, transform .35s ease;
+}
+
+/* עיצוב הכרטיס */
+.brow-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  pointer-events:none;
+  background:radial-gradient(circle at 30% 20%,rgba(184,149,58,.08),transparent 60%);
+}
+
+.brow-card::before{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  left:0;
+  height:2px;
+background:linear-gradient(90deg,#375D81,transparent);
+}
+
+.brow-top{
+  position:relative;
+  margin-bottom:14px;
+  text-align:center;
+}
+
+.bcard-h{
+  position:relative;
+  z-index:2;
+  font-size:20px;
+  font-weight:800;
+  line-height:1.05;
+  color:#375D81;
+  margin-bottom:14px;
+  text-align:center;
+}
+
+.bcard-p{
+  position:relative;
+  z-index:2;
+  font-size:14px;
+  line-height:1.8;
+  color:rgba(250,248,243,.58);
+  text-align:center;
+}
+
+.brow:hover .brow-card{
+  transform:translateX(-50%) translateY(-4px);
+  box-shadow:0 24px 60px rgba(184,149,58,.18);
+}
+
+.brow:hover .brow-media img{
+  transform:scale(1.1);
+}
+
+/* מובייל */
+@media(max-width:980px){
+  :root{--pad:16px}
+  section{padding:48px 0}
+
+  /* HERO */
+.hero-wrapper{width:calc(100% - 24px);margin:0px auto;padding:8px 16px 16px;border-radius:16px}
+  .hero-container{grid-template-columns:1fr}
+.hero-container{padding-top:0;}
+#hero{margin-bottom:0;padding-bottom:0;}
+.hero-wrapper{margin-bottom:0;}
+.hero-left{margin-top:0;}
+.hero-left{padding:16px 16px 20px !important;text-align:center}
+  .hero-title{font-size:clamp(26px,7vw,40px);white-space:normal;line-height:1.15}
+  .hero-subtitle{font-size:16px;white-space:normal;flex-wrap:wrap;justify-content:center}
+  .hero-subtitle img{width:110px}
+  .hero-sub-p{font-size:15px;margin:0 auto 24px;max-width:100%}
+  .hero-cta{justify-content:center;flex-direction:column;align-items:stretch}
+  .btn-hero,.btn-hero-ghost{text-align:center;font-size:15px;padding:14px 20px}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px;padding-top:16px;text-align:center}
+  .hero-stat-item:last-child{grid-column:1 / -1}
+  .hero-stat-num{font-size:28px}
+  .hero-stat-lbl{font-size:13px}
+.hero-right{display:flex;height:600px;overflow:hidden;border-radius:16px;margin:8px 0 0}
+.hero-right .hero-photo-frame img{object-fit:contain;object-position:50% 0%;}
+  .hero-right .hero-photo-caption{bottom:12px;right:12px;left:12px;padding:10px 14px}
+  .hpc-name{font-size:18px}
+  .hpc-role{font-size:13px}
+  nav{display:none}
+
+  /* URGENCY */
+  #urgency{padding:24px 0}
+  #urgency > .container > div{padding:24px 16px;border-radius:16px}
+  #urgency h2{font-size:clamp(24px,6vw,36px) !important}
+  #urgency p{font-size:16px !important}
+
+ /* BENEFITS */
+.benefits-rows{grid-template-columns:1fr;row-gap:160px;margin-top:160px}
+.brow,.brow:nth-child(3){grid-column:auto;max-width:100%;width:100%}
+.brow-media{width:90%;margin:0 auto;min-height:200px}
+.brow-card{top:-140px;left:50%;right:auto;transform:translateX(-50%);width:min(280px,88%);padding:16px 18px}
+.brow:hover .brow-card{transform:translateX(-50%)}
+.bcard-h{font-size:17px;margin-bottom:8px}
+.bcard-p{font-size:13px}
+.benefits-header .display-lg{font-size:28px}
+
+  /* FIT */
+.fit-title-row{margin-top:0 !important;margin-bottom:52px !important;padding:0 !important}
+.figures-grid{grid-template-columns:1fr !important;gap:60px !important}
+#fit{padding:40px 0 !important}
+.figure-img-wrap img{transform:translateY(140px) !important}
+.not-image{width:100% !important;margin-right:0 !important;margin-left:0 !important}
+
+  /* ABOUT */
+  .about-layout{grid-template-columns:1fr;gap:32px}
+  .about-photo-card{aspect-ratio:4/3;max-width:340px;margin:0 auto}
+  .about-photo-accent{left:0;bottom:-8px}
+#about{padding:0 !important}
+.about-cta{text-align:center;}
+
+  /* PROCESS */
+  .meetings-grid{grid-template-columns:1fr;perspective:none;gap:12px}
+  .meeting-wrap{height:auto}
+.meeting-wrap{height:auto !important}
+.flip-card{transform:none !important;transform-style:flat !important;height:auto !important;transition:none !important}
+.flip-face{position:relative !important;inset:auto !important;backface-visibility:visible !important;transform:none !important;height:auto !important}
+.flip-back{display:none !important}
+.meeting-wrap.flipped .flip-back{display:flex !important}
+.meeting-wrap.flipped .flip-front{display:none !important}
+
+ .ff-title{font-size:26px}
+.ff-num{font-size:48px}
+.between-card{grid-template-columns:1fr;padding:24px 20px;text-align:center !important}
+.bc-right{display:block !important;margin-bottom:8px;text-align:center;order:-1}
+.bc-left h3{font-size:22px;text-align:center !important}
+.bc-left p{text-align:center !important}
+.bc-chips{justify-content:flex-start !important;flex-wrap:wrap !important}
+
+  /* TESTIMONIALS */
+  .t-stage{max-width:100%}
+.t-arrow-right{right:0 !important}
+.t-arrow-left{left:0 !important}
+.t-card{padding:32px 56px !important}
+  .t-name{font-size:18px}
+  .t-text{font-size:14px}
+
+  /* FAQ */
+  .faq-layout{grid-template-columns:1fr}
+.faq-left{display:block !important}
+  .faq-q{font-size:14px}
+.faq-left{display:block !important;text-align:center !important}
+.faq-left h2{font-size:28px !important}
+.faq-left p{font-size:16px !important}
+
+  /* LEAD */
+ .lead-inner{grid-template-columns:1fr;gap:8px !important}
+.lead-left{display:block !important;text-align:center !important;margin-bottom:8px !important}
+.lead-left h2{font-size:28px !important}
+.lead-left p{font-size:16px !important;color:#ABC8E2 !important}
+.lead-form-card{width:100% !important;max-width:100% !important;border-radius:16px !important;padding:24px 16px !important}
+.form-row{grid-template-columns:1fr}
+.form-title{font-size:22px}
+
+  /* NOT BLOCK */
+  .not-grid{grid-template-columns:1fr}
+  .not-block{padding:24px 16px}
+  .not-block h3{font-size:22px}
+}
+
+@media(max-width:640px){
+  .t-arrow-right{right:4px}
+  .t-arrow-left{left:4px}
+  .t-card{padding:28px 16px}
+  .hdr{height:auto;padding:12px var(--pad) 14px;flex-direction:column;align-items:center;gap:8px}
+  nav{width:100%;justify-content:center}
+  nav .btn{font-size:12px;padding:8px 12px}
+  .ticker-block span{font-size:22px}
+  .ticker{height:64px;padding:20px 0}
+}
+}/*──────────────────────────────────────────────
+  FIT SECTION
+──────────────────────────────────────────────*/
+#fit{background:var(--smoke);padding:100px 0}
+.fit-title-row{
+  text-align:center;
+  margin-top:40px;
+  margin-bottom:106px;
+}
+.figures-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.figure-card{
+background:#375D81;;
+  border-radius:var(--r-lg);
+  overflow:visible;
+  border:1px solid var(--border);
+  transition:all .3s var(--ease-out);
+  display:flex;flex-direction:column;
+
+}
+.not-image {
+  background: #000;
+  padding: 6px;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 60%;
+}
+
+.not-image img{
+  width:100%;
+  max-width:900px;
+  border-radius:12px;
+  display:block;
+}
+
+.figure-img-wrap{
+  position:relative;
+  background:var(--smoke);
+  height:190px;
+  overflow:visible; /* חשוב כדי שיצא למעלה */
+  display:flex;
+  align-items:flex-end; /* התמונה יושבת למטה */
+  justify-content:center;
+}
+
+.figure-img-wrap img{
+  width:160%; /* מגדיל מעבר לגבולות */
+  height:auto;
+  transform:translateY(151px); /* מוציא למעלה */
+  object-fit:contain;
+}.figure-img-wrap img{
+  max-height:400px
+transform:translateY(-60px);
+;width:auto;
+  object-fit:contain;
+  margin-bottom:-1px;
+  position:relative;z-index:1;
+  transition:transform .4s var(--ease-out);
+  filter:drop-shadow(0 16px 32px rgba(10,10,8,.18));
+}
+.figure-card:hover{box-shadow:0 24px 64px rgba(10,10,8,.13);border-color:rgba(184,149,58,.3)}.figure-body{padding:24px 26px 28px}
+
+.figure-tag{
+  display:block;
+  width:fit-content;
+  margin:0 auto 10px;
+  padding:4px 14px;
+
+   background:#183152;
+  color:#ffffff;
+
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:.10em;
+  border-radius:100px;
+  text-align:center;
+}
+
+.figure-h{font-size:19px;font-weight:700;color:#ffffff;margin-bottom:7px;font-family:var(--serif)}
+.figure-p{text-align:center;font-size:18px;color:#ffffff;line-height:1.75}
+
+/* Not suitable block */
+.not-block{
+  margin-top:48px;
+  background:var(--ink);
+  border-radius:var(--r-lg);
+  padding:48px;
+  position:relative;overflow:hidden;
+}
+.not-block::after{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#e05555,#c9414e,#e05555);
+}
+.not-header{
+  display:flex;align-items:center;gap:16px;margin-bottom:32px;
+}
+.not-icon{
+  width:40px;height:40px;border-radius:var(--r);
+  background:rgba(224,85,85,.15);
+  border:1px solid rgba(224,85,85,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;flex-shrink:0;
+}
+.not-block h3{font-family:var(--serif);font-size:28px;color:var(--cream)}
+.not-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.not-item{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:16px 18px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r);
+  transition:border-color .25s;
+}
+.not-item:hover{border-color:rgba(224,85,85,.28)}
+.not-x{
+  width:24px;height:24px;border-radius:50%;flex-shrink:0;
+  background:rgba(224,85,85,.18);border:1px solid rgba(224,85,85,.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;color:#ff6b6b;
+  margin-top:2px;
+}
+.not-text{font-size:14px;color:rgba(250,248,243,.78);line-height:1.75;font-weight:500}
+
+/*──────────────────────────────────────────────
+  ABOUT SECTION
+──────────────────────────────────────────────*/
+#about{background:var(--cream);padding:25px 0}
+.about-layout{
+  display:grid;
+  grid-template-columns:420px 1fr;
+  gap:72px;align-items:center;
+}
+.about-photo-wrap{
+  position:relative;
+}
+.about-photo-card{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  aspect-ratio:4/5;
+  background:var(--smoke);
+}
+.about-photo-card img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:50% 20%;
+  transform:scale(1.08);
+}
+.about-photo-accent{
+  position:absolute;bottom:-12px;left:-12px;
+  width:120px;height:120px;border-radius:var(--r-lg);
+  background:var(--ink);
+  border:3px solid var(--paper);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:12px;
+}
+.apa-num{font-family:var(--serif);font-size:34px;color:var(--gold-2);line-height:1}
+.apa-lbl{font-size:11px;color:rgba(250,248,243,.55);font-weight:600;margin-top:3px;letter-spacing:.04em}
+.about-gold-bar{
+  display:none;
+  position:absolute;top:24px;right:-6px;
+  width:4px;height:80px;border-radius:2px;
+  background:linear-gradient(180deg,var(--gold),var(--gold-2));
+  box-shadow:0 0 20px rgba(184,149,58,.5);
+}
+.about-text-col{}
+.about-text-col p{margin-bottom:18px;line-height:1.95;font-size:16px}
+.about-text-col p:last-of-type{margin-bottom:0}
+.about-cta{margin-top:32px}
+
+/*──────────────────────────────────────────────
+  PROCESS
+──────────────────────────────────────────────*/
+#process{background:var(--smoke);padding:35px 0}
+.process-header{text-align:center;margin-bottom:64px}
+.meetings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;perspective:1200px}
+.meeting-wrap{cursor:pointer;height:300px}
+.flip-card{
+  width:100%;height:100%;position:relative;
+  transform-style:preserve-3d;
+  transition:transform .75s cubic-bezier(.2,.85,.2,1);
+  border-radius:var(--r-lg);
+}
+.meeting-wrap:hover .flip-card,
+.meeting-wrap.flipped .flip-card{transform:rotateY(180deg)}
+.flip-face{
+  position:absolute;inset:0;backface-visibility:hidden;
+  border-radius:var(--r-lg);
+  padding:36px;
+  display:flex;flex-direction:column;
+}
+.flip-front{
+  background:var(--ink);
+  border:1px solid rgba(255,255,255,.07);
+  justify-content:space-between;
+}
+.ff-top{
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.ff-num{
+  font-family:var(--serif);font-size:64px;
+  color:#FFFFFF;line-height:1;letter-spacing:-.03em;
+}
+.ff-step{
+  font-size:18px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:#ABC8E2;
+  border:1px solid #ABC8E2;
+  padding:5px 12px;border-radius:100px;
+  height:fit-content;
+}
+.ff-title{
+  font-family:var(--serif);font-size:35px;
+  color:var(--cream);line-height:1.15;letter-spacing:-.01em;
+text-align:center;
+}
+.ff-hint{
+  font-size:12px;color:#ABC8E2;
+  font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  display:flex;align-items:center;gap:6px;margin-top:20px;
+}
+.ff-hint::after{content:'←';color:#ABC8E2;opacity:.6}
+
+.flip-back{
+align-items:center;
+text-align:center;
+background:linear-gradient(135deg,#375D81,#ABC8E2);
+  transform:rotateY(180deg);
+  justify-content:center;
+}
+.fb-content{
+  font-size:20px;font-weight:600;line-height:1.8;
+  color:var(--ink);
+}
+.fb-heading{
+  font-family:var(--serif);font-size:24px;
+  color:#FFFFFF;margin-bottom:12px;
+}
+
+/* Between meetings */
+.between-card{
+  margin-top:24px;
+  background:var(--paper);
+  border:1px solid var(--border);
+  border-radius:var(--r-lg);
+  padding:40px 48px;
+  display:grid;grid-template-columns:1fr auto;
+  gap:40px;align-items:center;
+}
+.bc-left h3{font-family:var(--serif);font-size:28px;color:var(--ink);margin-bottom:12px}
+.bc-left p{font-size:15px;color:#000000;line-height:1.9}
+.bc-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.bc-chip{
+  padding:7px 16px;border-radius:100px;
+  border:1px solid var(--border);
+background:linear-gradient(135deg,#375D81,#ABC8E2);
+  font-size:13px;font-weight:600;color:var(--ink-3);
+}
+.bc-right{
+  text-align:center;
+  padding:28px 36px;
+  background:#ABC8E2;
+  border-radius:var(--r-lg);
+  border:1px solid var(--border);
+  min-width:180px;
+}
+.bc-right-num{font-family:var(--serif);font-size:42px;color:var(--ink);line-height:1;margin-bottom:4px}
+.bc-right-lbl{font-size:15px;color:#000000 ;font-weight:600}
+
+/*──────────────────────────────────────────────
+  TESTIMONIALS
+──────────────────────────────────────────────*/
+#testimonials{background:var(--ink);padding:100px 0;position:relative;overflow:hidden}
+#testimonials::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(184,149,58,.07) 0%,transparent 70%);
+}
+.t-header{text-align:center;margin-bottom:56px}
+.t-header .display-lg{color:var(--cream)}
+.t-stage{
+  position:relative;max-width:760px;margin:0 auto;
+  touch-action:pan-y;
+}
+.t-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(171,200,226,0.4);
+  background: rgba(171,200,226,0.1);
+  color: #ABC8E2;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s;
+  backdrop-filter: blur(6px);
+}
+.t-arrow:hover {
+  background: rgba(171,200,226,0.25);
+  border-color: #ABC8E2;
+  transform: translateY(-50%) scale(1.08);
+}
+.t-arrow-right { right: -64px; }
+.t-arrow-left  { left: -64px; }
+
+.t-card{
+  background:var(--ink-2);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg);
+  padding:48px 52px;
+  position:relative;overflow:hidden;
+  text-align:center;
+}
+.t-card::before{
+  display:none;
+  font-family:var(--serif);font-size:180px;
+  color:rgba(184,149,58,.07);
+  position:absolute;top:-40px;right:24px;
+  line-height:1;pointer-events:none;user-select:none;
+}
+.t-name{
+  font-family:var(--serif);
+  font-size:22px;
+  color:#ABC8E2;
+  margin-bottom:20px;
+  text-shadow:0 0 10px rgba(171,200,226,0.8),
+              0 0 20px rgba(171,200,226,0.6),
+              0 0 30px rgba(171,200,226,0.4);
+}
+.t-text{
+  font-size:15.5px;color:rgba(250,248,243,.72);
+  line-height:2;font-weight:400;max-width:58ch;margin:0 auto;
+}
+.t-dots{
+  display:flex;gap:8px;justify-content:center;margin-top:28px;
+}
+.t-dot{
+  width:28px;
+  height:3px;
+  border-radius:2px;
+  background:#375D81;
+  transition:all .3s var(--ease-out);
+  cursor:pointer;
+}
+.t-dot.active{background:var(--gold);width:44px}
+
+/* anim */
+.t-card{transition:opacity .25s ease,transform .25s ease}
+.t-card.out{opacity:0;transform:translateY(8px)}
+.t-card.in{opacity:1;transform:translateY(0)}
+
+/*──────────────────────────────────────────────
+  FAQ
+──────────────────────────────────────────────*/
+#faq{background:var(--cream);padding:100px 0}
+.faq-layout{display:grid;grid-template-columns:340px 1fr;gap:64px;align-items:flex-start}
+.faq-left{}
+.faq-left p{font-size:15px;color:#000000;line-height:1.9;margin-top:16px}
+.faq-list{display:flex;flex-direction:column;gap:0}
+.faq-item{
+  border-top:1px solid var(--border);
+}
+.faq-item:last-child{border-bottom:1px solid var(--border)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:22px 0;
+  font-size:15.5px;font-weight:700;color:var(--ink);
+  background:none;border:none;font-family:var(--sans);cursor:pointer;
+  text-align:right;
+  -webkit-tap-highlight-color:transparent;
+}
+.faq-icon{
+  width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--muted);
+  transition:all .25s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);border-color:var(--gold);color:var(--gold)}
+.faq-a{
+  overflow:hidden;height:0;
+  transition:height .35s var(--ease-out);
+}
+.faq-a-inner{
+  padding:0 0 20px;
+  font-size:15px;color:#000000;line-height:1.85;
+}
+
+/*──────────────────────────────────────────────
+  LEAD FORM
+──────────────────────────────────────────────*/
+#lead{
+  background:var(--ink);
+  padding:100px 0;
+  position:relative;overflow:hidden;
+}
+#lead::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 80% 0%,rgba(184,149,58,.10) 0%,transparent 55%),
+    radial-gradient(circle at 10% 100%,rgba(184,149,58,.07) 0%,transparent 50%);
+}
+.lead-inner{
+  display:grid;grid-template-columns:1fr 540px;
+  gap:80px;align-items:center;position:relative;z-index:1;
+}
+.lead-left{}
+.lead-left .display-lg{color:var(--cream)}
+.lead-left .body-lg{margin-top:18px;color:rgba(250,248,243,.55)}
+.lead-proof{
+  margin-top:40px;display:flex;flex-direction:column;gap:14px;
+}
+.lead-proof-item{
+  display:flex;align-items:center;gap:12px;
+  font-size:14px;color:rgba(250,248,243,.6);font-weight:500;
+}
+.lead-proof-icon{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:rgba(184,149,58,.15);border:1px solid rgba(184,149,58,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;
+}
+.lead-form-card{
+  background:var(--paper);
+  border-radius:var(--r-lg);
+  padding:44px 40px;
+  box-shadow:0 32px 80px rgba(0,0,0,.45);
+}
+.form-title{
+  text-align:center;
+  font-family:var(--serif);
+  font-size:28px;
+  color:var(--ink);
+  margin-bottom:6px;
+}
+.form-sub{text-align:center;font-size:14px;color:var(--muted);margin-bottom:28px}
+.form-group{margin-bottom:18px}
+.form-label{
+  display:block;font-size:12px;font-weight:700;
+  letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:7px;
+}
+.form-input{
+  width:100%;padding:13px 15px;
+  border:1.5px solid var(--border);
+  border-radius:var(--r);
+  background:var(--cream);
+  color:var(--ink);font-family:var(--sans);font-size:15px;
+  transition:all .22s;outline:none;
+}
+.form-input:focus{border-color:var(--gold);background:var(--paper);box-shadow:0 0 0 3px rgba(184,149,58,.12)}
+.form-input::placeholder{color:rgba(10,10,8,.3)}
+textarea.form-input{min-height:108px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.status-msg{
+  display:none;margin-top:14px;padding:12px 15px;
+  background:var(--smoke);border:1px solid var(--border);
+  border-radius:var(--r);
+  font-size:14px;color:var(--muted);font-weight:600;
+}
+
+/*──────────────────────────────────────────────
+  FOOTER
+──────────────────────────────────────────────*/
+footer.site-footer{
+  background:var(--ink-2);
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:28px 0;
+}
+.footer-inner{
+  max-width:var(--max);margin:0 auto;padding:0 var(--pad);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;
+}
+.footer-copy{font-size:13px;color:rgba(250,248,243,.38);font-weight:500}
+.footer-links{display:flex;gap:24px}
+.footer-links a{font-size:13px;color:rgba(250,248,243,.38);font-weight:500;transition:color .2s}
+.footer-links a:hover{color:var(--gold-2)}
+
+/*──────────────────────────────────────────────
+  REDUCED MOTION
+──────────────────────────────────────────────*/
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal,.reveal-left,.reveal-right{transition:none;transform:none;opacity:1}
+  .ticker-inner{animation:none}
+  .hero-badge-dot{animation:none}
+  .flip-card{transition:none}
+  .t-card{transition:none}
+  .btn,.btn-hero,.btn-gold,.btn-ghost{transition:none}
+}
+
+/*──────────────────────────────────────────────
+  RESPONSIVE
+──────────────────────────────────────────────*/
+@media(max-width:980px){
+  :root{--pad:20px}
+  section{padding:72px 0}
+  .hero-container{grid-template-columns:1fr}
+.hero-right{
+  display:flex;
+  height:280px;
+  overflow:hidden;
+  border-radius:16px;
+  margin:16px 0 0;
+}
+nav { display: none; }
+.hero-right .hero-photo-frame img {
+  object-position: 50% 0%;
+}
+.hero-right .hero-photo-caption{
+  bottom:12px;
+  right:12px;
+  left:12px;
+  padding:10px 14px;
+}
+.hpc-name{font-size:18px}
+.hpc-role{font-size:13px}
+  .hero-left{padding:72px 0 64px;border-left:none;text-align:center}
+  .hero-badge{margin-left:auto;margin-right:auto}
+  .hero-cta{justify-content:center}
+  .hero-stats{justify-content:center}
+  .hero-sub-p{margin:0 auto 36px}
+
+  .urgency-grid{grid-template-columns:1fr}
+  .benefits-grid{grid-template-columns:repeat(3,1fr)}
+  .bcard:last-child:nth-child(5){grid-column:1/-1}
+  .figures-grid{grid-template-columns:1fr}
+  .about-layout{grid-template-columns:1fr;gap:40px}
+  .about-photo-card{aspect-ratio:4/3;max-width:480px;margin:0 auto}
+  .about-photo-accent{left:0;bottom:-8px}
+  .meetings-grid{grid-template-columns:1fr;perspective:none}
+  .meeting-wrap{height:auto}
+  .flip-card{transform:none!important;transform-style:flat!important;height:auto!important;transition:none!important}
+  .flip-face{position:relative!important;inset:auto!important;backface-visibility:visible!important;transform:none!important;height:auto;padding:28px 24px}
+  .flip-back{margin-top:8px;border-radius:var(--r-lg)!important}
+  .between-card{grid-template-columns:1fr}
+  .bc-right{display:none}
+  .faq-layout{grid-template-columns:1fr}
+  .faq-left{display:none}
+  .lead-inner{grid-template-columns:1fr}
+  .lead-left{display:none}
+  .lead-form-card{max-width:600px;margin:0 auto}
+  .not-grid{grid-template-columns:1fr}
+  .not-block{padding:32px 24px}
+}
+@media(max-width:640px){
+  .benefits-grid{grid-template-columns:1fr 1fr}
+  .form-row{grid-template-columns:1fr}
+  .t-card{padding:32px 24px}
+  .hdr{height:auto;padding:12px var(--pad) 14px;flex-direction:column;align-items:center;gap:10px}
+  nav{width:100%;justify-content:center} /* fixed: was .nav but the markup uses <nav> */
+  nav .btn{font-size:13px;padding:9px 16px}
+}
+.hero-wrapper {
+  max-width: 1400px;
+  width: calc(100% - 48px);
+  margin: 24px auto;
+  border-radius: 24px;
+padding: 0 24px 24px;
+  position: relative;
+  z-index: 1;
+  background: #EAEBEB;
+}
+</style>
+</head>
+<body>
+
+<!-- LANDSCAPE BLOCK -->
+<div class="landscape-block">
+  <div class="lb-inner">
+    <div class="lb-icon">📱</div>
+    <h2 class="lb-h">לצפייה מיטבית</h2>
+    <p class="lb-p">סובבו את הטלפון למצב אנכי (Portrait) לחוויה הטובה ביותר.</p>
+  </div>
+</div>
+
+<a class="wa-fab" href="https://wa.me/972543944984?text=%D7%94%D7%99%D7%99%20%D7%99%D7%A8%D7%90%D7%9C%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%99%D7%97%D7%AA%20%D7%94%D7%AA%D7%90%D7%9E%D7%94" target="_blank" rel="noopener" aria-label="שלחו הודעה בוואטסאפ">
+  דברו איתי<br>עכשיו!
+</a>
+<!-- ═══════════════════════ HEADER ═══════════════════════ -->
+<header>
+  <div class="hdr">
+    <a class="logo-wrap" href="#hero">
+      <img src="logo.png" alt="יראל כברה"/>
+      <div>
+        <div class="brand-name">יראל כברה</div>
+        <div class="brand-sub">יועץ ומאמן לכלכלת המשפחה</div>
+      </div>
+    </a>
+    <nav>
+      <a class="btn btn-ghost" href="#process">איך זה עובד</a>
+      <a class="btn btn-ghost" href="#faq">שאלות</a>
+      <a class="btn btn-gold" href="#lead">יראל, בוא נעשה סדר</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <div class="hero-bg-lines" aria-hidden="true"></div>
+  <div class="hero-bg-glow" aria-hidden="true"></div>
+  <div class="hero-bg-glow-2" aria-hidden="true"></div>
+
+  <div class="hero-wrapper">
+    <div class="hero-container">
+      <div class="hero-left reveal">
+    
+        <h1 class="hero-title">
+          המשכורת נכנסת - <em>והמינוס עדיין גדל?</em>
+        </h1>
+
+<div class="hero-subtitle">
+  המינוס לא ייעלם מעצמו - הנה איך משפחות כמוכם הופכות את
+  <img src="b.png" style="width:160px; flex-shrink:0; position:relative; top:-2px;">
+</div>
+
+        <p class="hero-sub-p">בעזרת שיטה מוכחת וליווי אישי מותאם, תלמדו לעצור את המינוס, להחזיר שליטה על הכסף, ולהתחיל לבנות חיסכון יציב שמתאים לחיים שלכם.</p>
+
+        <div class="hero-cta">
+          <a class="btn-hero" href="#lead">יראל, בוא נעשה סדר</a>
+          <a class="btn-hero-ghost" href="#process">איך זה עובד</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">₪ 4,000</div>
+            <div class="hero-stat-lbl"> חיסכון חודשי ממוצע</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">% 100</div>
+            <div class="hero-stat-lbl">ליווי אישי מותאם</div>
+          </div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-lbl">פגישות לשינוי אמיתי</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-gold-line"></div>
+        <div class="hero-photo-frame">
+          <img src="a.png" alt="יראל כברה - יועץ ומאמן לכלכלת המשפחה"/>
+        </div>
+        <div class="hero-photo-caption">
+          <div class="hpc-name">יראל כברה</div>
+          <div class="hpc-role">יועץ ומאמן לכלכלת המשפחה</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<!-- TICKER -->
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+
+    <div class="ticker-block">
+      <span>שליטה מלאה על הכסף</span>
+      <span class="ticker-sep"></span>
+      <span>סגירת המינוס</span>
+      <span class="ticker-sep"></span>
+      <span>חיסכון יציב</span>
+      <span class="ticker-sep"></span>
+      <span>ליווי אישי מותאם</span>
+      <span class="ticker-sep"></span>
+      <span>ביטחון כלכלי לטווח ארוך</span>
+      <span class="ticker-sep"></span>
+      <span>תקציב מאוזן</span>
+      <span class="ticker-sep"></span>
+    </div>
+
+    <div class="ticker-block" aria-hidden="true">
+      <span>שליטה מלאה על הכסף</span>
+      <span class="ticker-sep"></span>
+      <span>סגירת המינוס</span>
+      <span class="ticker-sep"></span>
+      <span>חיסכון יציב</span>
+      <span class="ticker-sep"></span>
+      <span>ליווי אישי מותאם</span>
+      <span class="ticker-sep"></span>
+      <span>ביטחון כלכלי לטווח ארוך</span>
+      <span class="ticker-sep"></span>
+      <span>תקציב מאוזן</span>
+      <span class="ticker-sep"></span>
+    </div>
+
+  </div>
+</div>
+</div>
+<!-- ═══════════════════════ URGENCY ═══════════════════════ -->
+<section id="urgency">
+  <div class="container" style="display:flex; justify-content:center;">
+
+    <div style="
+      background:#EAEBEB;
+      border-radius:24px;
+      padding:40px;
+      max-width:1400px;
+      width:100%;
+      text-align:center;
+    ">
+
+      <h2 class="display-lg" style="font-size:56px; color:#183152; margin-bottom:20px;">
+        יוקר המחיה בישראל לא מחכה לאף אחד!
+      </h2>
+
+      <p style="font-size:24px; margin-top:0;">
+        המחירים עולים, התקציב נלחץ, וזה כבר ברור: זו לא תקלה זמנית - זו המציאות. 
+        <br>
+        כדי להתמודד, צריך <span style="color:#375D81; font-weight:700;">תוכנית פעולה ברורה.</span> 
+        <br>
+        צעד-צעד, עם ליווי אישי ומדויק, אפשר לעצור את ההחלקה למינוס, להחזיר שליטה מלאה על הכסף, ולהוכיח לעצמכם שהחיסכון אפשרי. 
+        <br>
+      <span style="color:#375D81; font-weight:700;">וזה בדיוק המקום שבו אני נכנס לתמונה.</span>
+      </p>
+
+    </div>
+
+  </div>
+</section>
+<!-- ═══════════════════════ BENEFITS ═══════════════════════ -->
+<section id="benefits">
+  <div class="container">
+
+    <div class="benefits-header reveal">
+      <div class="eyebrow" style="justify-content:center;color:var(--gold-2)">
+      </div>
+
+      <h2 class="display-lg" style="color:var(--cream)">
+        מה יקרה למצב הפיננסי שלכם איתי?
+      </h2>
+    </div>
+
+    <div class="benefits-rows reveal d1">
+
+      <div class="brow">
+  <div class="brow-media">
+
+    <img src="benefit3.png">
+
+    <div class="brow-card">
+      <div class="brow-top">
+        <div class="bcard-h">נפרדים מהמינוס</div>
+      </div>
+      <div class="bcard-p">
+נבנה אסטרטגיה חכמה להסדרת כל ההתחייבויות שלכם ותסגרו את המינוס אחת ולתמיד.      </div>
+    </div>
+
+  </div>
+</div>
+
+      <div class="brow rev">
+        <div class="brow-media">
+          <img src="benefit2.png">
+        </div>
+        <div class="brow-card">
+          <div class="brow-top">
+            <div class="bcard-h">תקציב מאוזן</div>
+          </div>
+          <div class="bcard-p">
+            תהיה לכם מסגרת שמאפשרת לכם לחסוך לעתיד בלי לוותר על איכות החיים שלכם היום.
+          </div>
+        </div>
+      </div>
+
+      <div class="brow">
+        <div class="brow-media">
+          <img src="benefit1.png">
+        </div>
+        <div class="brow-card">
+          <div class="brow-top">
+            <div class="bcard-h">שליטה מלאה</div>
+          </div>
+          <div class="bcard-p">
+תשלטו באופן מדויק ופשוט בהכנסות והוצאות שלכם, בלי "הפתעות" בסוף החודש.         </div>
+        </div>
+      </div>
+
+      <div class="brow rev">
+        <div class="brow-media">
+          <img src="benefit4.png">
+        </div>
+        <div class="brow-card">
+          <div class="brow-top">
+            <div class="bcard-h">בונים את העתיד</div>
+          </div>
+          <div class="bcard-p">
+תטמיעו הרגלי חיסכון חודשיים ועקביים שיהפכו עם הזמן להון עצמי משמעותי ולביטחון כלכלי אמיתי.          </div>
+        </div>
+      </div>
+
+      <div class="brow">
+        <div class="brow-media">
+          <img src="benefit5.png">
+        </div>
+        <div class="brow-card">
+          <div class="brow-top">
+            <div class="bcard-h">חוסן כלכלי</div>
+          </div>
+          <div class="bcard-p">
+תבססו תשתית כלכלית חזקה ומתוכננת היטב שתבטיח את הביטחון הכלכלי שלכם לשנים רבות.          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ═══════════════════════ FIT ═══════════════════════ -->
+<section id="fit">
+  <div class="container">
+    <div class="fit-title-row reveal">
+      <h2 class="display-lg">למי זה מתאים?</h2>
+    </div>
+
+    <div class="figures-grid">
+      <div class="figure-card reveal d1">
+        <div class="figure-img-wrap">
+          <img src="c.png" alt="זוגות צעירים"/>
+        </div>
+        <div class="figure-body">
+          <div class="figure-tag">זוגות צעירים</div>
+          <p class="figure-p">לזוגות צעירים שמרוויחים יפה, אבל עדיין מוצאים את עצמם במינוס.</p>
+        </div>
+      </div>
+      <div class="figure-card reveal d2">
+        <div class="figure-img-wrap">
+          <img src="f.png" alt="משפחות"/>
+        </div>
+        <div class="figure-body">
+          <div class="figure-tag">משפחות</div>
+          <p class="figure-p">למשפחות עם ילד או שניים שמתקשות כלכלית ורוצות להתחיל לחסוך לעתיד.</p>
+        </div>
+      </div>
+      <div class="figure-card reveal d3">
+        <div class="figure-img-wrap">
+          <img src="s.png" alt="יחידים"/>
+        </div>
+        <div class="figure-body">
+          <div class="figure-tag">יחידים</div>
+          <p class="figure-p">למי שמרגיש שאין לו שליטה על הכסף ורוצה יציבות כלכלית וסדר ברור בלי לוותר על איכות החיים.</p>
+        </div>
+      </div>
+    </div>
+
+<div class="not-image">
+  <img src="z.png" alt="" style="border-radius:20px; display:block; width:100%;">
+</div>
+              </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-layout">
+      <div class="about-photo-wrap reveal-left">
+        <div class="about-photo-card">
+          <img src="me.jpg.png" alt="יראל כברה"/>
+        </div>
+              <div class="about-gold-bar"></div>
+      </div>
+
+      <div class="about-text-col reveal-right d1">
+        <h2 class="display-md" style="margin-bottom:24px">נעים מאוד (:</h2>
+
+        <p class="body-lg" style="color:var(--muted)">אני יראל כברה, יועץ ומאמן לכלכלת המשפחה למשפחות וזוגות צעירים. את המסע שלי בעולם הפיננסי התחלתי מהצורך האישי שלי ושל אשתי שהיה לצאת מהסחרור הכלכלי שהיינו בו.</p>
+        <p class="body-lg" style="color:var(--muted)">ב"ה איזנו את התקציב שלנו והתחלנו לבנות חיסכון יציב המבטיח לנו עתיד כלכלי בטוח יותר. עם הזמן, אני לא רק למדתי לשפר את המצב הכלכלי הפרטי שלי, אלא גם למדתי לשפר את המצב הכלכלי של משפחות אחרות, ועזרתי להן לבנות בסיס כלכלי יציב עם יעדים לטווח הארוך.</p>
+        <p class="body-lg" style="color:var(--muted)">לא נולדתי עם ידע כלכלי - למדתי בדרך הקשה, כמו רובנו. אבל מה שגרם לי להתמחות היה השילוב בין הרצון להעניק למשפחה שלי ביטחון כלכלי והבנה של דבר, שכולם יכולים לחיות בצורה נבונה יותר עם הכסף שלנו, אם רק נקבל את הכלים המותאמים.</p>
+        <p class="body-lg" style="color:var(--muted)">על הדרך, הבנתי שכל משפחה היא עולם בפני עצמו - מה שמתאים לאחד, לא בהכרח יתאים לאחר. לכן, אני לא בא עם פתרונות "מדף". אני בא להקשיב, להבין את הצרכים שלכם לעומק, ולבנות יחד תוכנית פעולה שתהיה ישימה עבורכם, בלי קלישאות ובלי מילים גבוהות. פשוט מה שיעבוד.</p>
+
+        <div class="about-cta">
+          <a class="btn btn-gold btn-lg" href="#lead">בואו נדבר ←</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROCESS ═══════════════════════ -->
+<section id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <h2 class="display-lg">איך נראה התהליך בפועל?</h2>
+    </div>
+
+    <div class="meetings-grid">
+      <div class="meeting-wrap reveal d1">
+        <div class="flip-card">
+          <div class="flip-face flip-front">
+            <div class="ff-top">
+              <div class="ff-num">1</div>
+              <div class="ff-step">פגישה ראשונה</div>
+            </div>
+            <div class="ff-title">מיפוי ותכנון כלכלי</div>
+            <div class="ff-hint">להפיכה</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="fb-heading">מה קורה בפגישה?</div>
+            <div class="fb-content">סקירה מלאה של הכנסות/הוצאות/הלוואות/התחייבויות. תמונת מצב ברורה + תקציב חדש ומאוזן שמחזיר שליטה כבר מההתחלה.</div>
+          </div>
+        </div>
+      </div>
+      <div class="meeting-wrap reveal d2">
+        <div class="flip-card">
+          <div class="flip-face flip-front">
+            <div class="ff-top">
+              <div class="ff-num">2</div>
+              <div class="ff-step">פגישה שנייה</div>
+            </div>
+            <div class="ff-title">בקרה והעמקה</div>
+            <div class="ff-hint">להפיכה</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="fb-heading">מה קורה בפגישה?</div>
+            <div class="fb-content">בדיקת יישום בפועל, תיקון נקודות חלשות, והעמקה בהרגלי צריכה עם כלים מעשיים לחיסכון עקבי.</div>
+          </div>
+        </div>
+      </div>
+      <div class="meeting-wrap reveal d3">
+        <div class="flip-card">
+          <div class="flip-face flip-front">
+            <div class="ff-top">
+              <div class="ff-num">3</div>
+              <div class="ff-step">פגישה שלישית</div>
+            </div>
+            <div class="ff-title">בניית תוכנית חיסכון</div>
+            <div class="ff-hint">להפיכה</div>
+          </div>
+          <div class="flip-face flip-back">
+            <div class="fb-heading">מה קורה בפגישה?</div>
+            <div class="fb-content">תוכנית חיסכון ליעדים הגדולים, היערכות לאירועים משמעותיים, והנחת יסודות לביטחון כלכלי ארוך טווח.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="between-card reveal">
+      <div class="bc-left">
+        <h3>בין פגישה לפגישה אתם לא לבד</h3>
+        <p>רוב האנשים מבינים מה צריך לעשות - אבל נופלים ביישום. כאן בדיוק נכנס הליווי: מענה מהיר, חידוד החלטות בזמן אמת, ודיוק שבועי קטן שמצטבר לתוצאות גדולות בחשבון הבנק. המטרה: שלא תצאו מהפגישה "מלאים מוטיבציה" - אלא תראו תוצאות בפועל, שבוע אחרי שבוע.</p>
+        <div class="bc-chips">
+          <span class="bc-chip">✓ קבוצת וואטסאפ אישית</span>
+          <span class="bc-chip">✓ מענה מהיר לשאלות</span>
+          <span class="bc-chip">✓ טיפים שבועיים</span>
+        </div>
+      </div>
+      <div class="bc-right">
+        <div class="bc-right-num">3</div>
+        <div class="bc-right-lbl">פגישות לשינוי אמיתי</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TESTIMONIALS ═══════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="t-header reveal">
+<div class="eyebrow" style="color:#ABC8E2; text-shadow:0 0 10px rgba(171,200,226,0.8), 0 0 20px rgba(171,200,226,0.6), 0 0 30px rgba(171,200,226,0.4);">
+  המלצות
+</div>      <h2 class="display-lg" style="color:var(--cream)">הם כבר עשו את השינוי</h2>
+    </div>
+    <div class="t-stage" id="tStage">
+<button class="t-arrow t-arrow-right" id="prevTestimonial">‹</button>
+<button class="t-arrow t-arrow-left" id="nextTestimonial">›</button>
+      <div class="t-card in" id="tCard">
+        <div class="t-name" id="tName">אלעד ושירן קטמאו</div>
+        <p class="t-text" id="tText">הגענו ליראל עם תחושת בלבול וחוסר שליטה על ההוצאות שלנו. כבר אחרי הפגישה הראשונה, קיבלנו תוכנית כלכלית ברורה ומעשית שהכניסה אותנו למסלול הנכון. בזכות הליווי המקצועי והמדויק שלו, הצלחנו לחסוך למעלה מ-8000 ש"ח כל חודש. יראל עזר לנו להפסיק לבזבז כסף על דברים מיותרים ולבנות תשתית כלכלית יציבה עם מבט קדימה לעבר היעדים שלנו. אנחנו ממליצים עליו בחום לכל מי שמחפש פתרונות אמיתיים לניהול הכסף שלו.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-left reveal">
+        <h2 class="display-md">יש לכם שאלות?</h2>
+        <p>כאן תמצאו תשובות לשאלות הנפוצות ביותר. לא מצאתם מה חיפשתם? כתבו לנו ישירות.</p>
+      </div>
+
+      <div class="faq-list reveal d1" id="faqList">
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq="0" type="button">
+            <span>
+              <span style="color:#375D81;font-weight:800;">שאלה:</span>
+              כמה זמן עד שרואים תוצאות?
+            </span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <span style="color:#375D81;font-weight:800;">תשובה:</span>
+              כבר מהחודש הראשון תרגישו שינוי בחשבון הבנק ובתחושת השליטה.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq="1" type="button">
+            <span>
+              <span style="color:#375D81;font-weight:800;">שאלה:</span>
+              איך אפשר לדעת שהתהליך באמת יעבוד בשבילנו?
+            </span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <span style="color:#375D81;font-weight:800;">תשובה:</span>
+              בגלל שהליווי מותאם אישית למצב שלכם - לא מדובר בשבלונה קבועה. אנחנו בונים יחד תוכנית שמתאימה בדיוק להכנסות, להוצאות ולחלומות שלכם, ומוודאים צעד-צעד שזה קורה בפועל.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq="2" type="button">
+            <span>
+              <span style="color:#375D81;font-weight:800;">שאלה:</span>
+              מפחיד אותנו להוציא כסף על זה - גם ככה המצב לא פשוט.
+            </span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <span style="color:#375D81;font-weight:800;">תשובה:</span>
+              החשש מובן, אבל חשוב להבין: זו לא הוצאה - זו השקעה שמחזירה את עצמה. הליווי עוזר לא רק לסגור את המינוס אלא גם להתחיל לחסוך בצורה יציבה. מהצד השני, אם לא תשקיעו ותמשיכו כמו היום - המינוס רק יעמיק והמחיר העתידי יהיה גבוה בהרבה.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq="3" type="button">
+            <span>
+              <span style="color:#375D81;font-weight:800;">שאלה:</span>
+              מה אם המשכורת שלנו לא מספיק גבוהה?
+            </span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <span style="color:#375D81;font-weight:800;">תשובה:</span>
+              השיטה לא מבוססת על גובה ההכנסה בלבד, אלא על ניהול נכון של מה שכבר נכנס. גם עם שכר ממוצע אפשר לסגור מינוס, לייצר חיסכון ולהתכונן לעתיד - כשהכול מותאם אישית ליכולות שלכם.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq="4" type="button">
+            <span>
+              <span style="color:#375D81;font-weight:800;">שאלה:</span>
+              האם זה מתאים רק למי שכבר במינוס?
+            </span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              <span style="color:#375D81;font-weight:800;">תשובה:</span>
+              לא. גם מי שרוצה למנוע הידרדרות או להתחיל לחסוך לטווח ארוך יפיק מכך ערך רב.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════ LEAD FORM ═══════════════════════ -->
+<section id="lead">
+  <div class="container">
+    <div class="lead-inner">
+      <div class="lead-left reveal">
+<h2 class="display-lg" style="color:var(--cream); text-align:center;">
+  מוכנים לעשות סדר?
+</h2><p class="form-sub" style="color:#ABC8E2; font-size:18px; text-shadow:0 0 10px rgba(171,200,226,0.8), 0 0 20px rgba(171,200,226,0.6), 0 0 30px rgba(171,200,226,0.4);">
+  השאירו פרטים ונחזור אליכם לשיחת התאמה קצרה - בלי התחייבות, בלי לחץ.
+</p>
+      </div>
+
+      <div class="lead-form-card reveal d2">
+        <h3 class="form-title">לשיחת התאמה</h3>
+        <p class="form-sub">השאירו פרטים ונחזור אליכם בהקדם</p>
+        <form onsubmit="return handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="fname">שם מלא</label>
+              <input class="form-input" id="fname" name="name" type="text" autocomplete="name" required placeholder="לדוגמה: נריה כהן"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="fphone">טלפון</label>
+              <input class="form-input" id="fphone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="054-1234567"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fstatus">מה המצב הכלכלי כרגע?</label>
+            <input class="form-input" id="fstatus" name="status" type="text" placeholder="לדוגמה: במינוס 8,000 ₪"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fnote">מה היעד הקרוב שלכם?</label>
+            <textarea class="form-input" id="fnote" name="note" placeholder="לדוגמה: לסגור מינוס ולהתחיל לחסוך 1,000 ₪ בחודש"></textarea>
+          </div>
+          <button class="btn btn-gold btn-lg" id="submitBtn" type="submit" style="width:100%;justify-content:center">יראל, בוא נעשה סדר</button>
+          <div class="status-msg" id="statusMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-copy">© <span id="copYear"></span> יראל כברה - כל הזכויות שמורות</div>
+    <div class="footer-links">
+      <a href="#lead">שיחת התאמה</a>
+      <a href="#process">איך זה עובד</a>
+      <a href="#hero">למעלה</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Force start at top on refresh/back ── */
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
+function forceTop() {
+  // אם יש # בכתובת, זה גורם לקפיצה למקטע
+  if (location.hash) {
+    history.replaceState(null, document.title, location.pathname + location.search);
+  }
+  window.scrollTo(0, 0);
+}
+
+// עובד גם ברענון רגיל
+window.addEventListener('DOMContentLoaded', forceTop);
+// עובד גם כשכרום מחזיר מצב מהיסטוריה/קאש (BFCache)
+window.addEventListener('pageshow', forceTop);
+// “מנצח” קפיצות מאוחרות
+setTimeout(forceTop, 0);
+setTimeout(forceTop, 80);
+/* ── Year ── */
+document.getElementById('copYear').textContent = new Date().getFullYear();
+
+/* ── Reveal on scroll ── */
+const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.10 });
+revealEls.forEach(el => obs.observe(el));
+
+/* ── Smooth scroll ── */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (!a) return;
+  const tgt = document.querySelector(a.getAttribute('href'));
+  if (!tgt) return;
+  e.preventDefault();
+  const hdrH = document.querySelector('header')?.offsetHeight || 0;
+  window.scrollTo({ top: tgt.getBoundingClientRect().top + scrollY - hdrH - 8, behavior: 'smooth' });
+});
+
+/* ── Flip cards ── */
+document.querySelectorAll('.meeting-wrap').forEach(c =>
+  c.addEventListener('click', () => c.classList.toggle('flipped'))
+);
+
+/* ── FAQ ── */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.height = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      const a = item.querySelector('.faq-a');
+      a.style.height = a.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ── Testimonials ── */
+(function(){
+  const items = [
+    {name:'אלעד ושירן קטמאו', text:'הגענו ליראל עם תחושת בלבול וחוסר שליטה על ההוצאות שלנו. כבר אחרי הפגישה הראשונה, קיבלנו תוכנית כלכלית ברורה ומעשית שהכניסה אותנו למסלול הנכון. בזכות הליווי המקצועי והמדויק שלו, הצלחנו לחסוך למעלה מ-8000 ש"ח כל חודש. יראל עזר לנו להפסיק לבזבז כסף על דברים מיותרים ולבנות תשתית כלכלית יציבה עם מבט קדימה לעבר היעדים שלנו. אנחנו ממליצים עליו בחום לכל מי שמחפש פתרונות אמיתיים לניהול הכסף שלו.'},
+    {name:'עידו ואביה זוגייר', text:'יראל היקר, תודה רבה רבה על הליווי בדרך לרווחת המשפחה שלנו מבחינה כלכלית. עשית זאת בצורה כ"כ נעימה ומכבדת ובעיקר עם המון המון מקצועיות והתמקדות בצרכים שלנו כמשפחה. תודה על כל הטיפים והטבלאות המפורטות בכדי להצליח להגיע לרווחה כלכלית. ממש מעריכים את ההכוונה המדויקת עבורנו במקצועיות ובנעימות.'},
+    {name:'יעל ואיתן שניר', text:"מהרגע הראשון היה ברור שיש פה סדר ותכל'ס. לא קיבלנו נאומים ולא סיסמאות - קיבלנו הסתכלות אמיתית על המספרים, החלטות ברורות, וכלים שהפכו את ההתנהלות היומיומית לפשוטה יותר. תוך זמן קצר הרגשנו שהלחץ יורד ושיש לנו כיוון. זה היה ליווי מדויק, אנושי, ובעיקר כזה שמחזיר ביטחון."},
+  ];
+  const nameEl=document.getElementById('tName');
+  const textEl=document.getElementById('tText');
+  const card=document.getElementById('tCard');
+  const dotsEl=document.getElementById('tDots');
+  let cur=0,timer=null;
+  const stage=document.getElementById('tStage');
+
+function setDot(i){}
+  function show(i){
+    card.classList.add('out');
+    setTimeout(()=>{
+      nameEl.textContent=items[i].name;
+      textEl.textContent=items[i].text;
+      card.classList.remove('out');
+      void card.offsetWidth;
+    },260);
+  }
+  function goto(i){cur=i;show(i)}
+  function next(){cur=(cur+1)%items.length;show(cur)}
+  function start(){clearInterval(timer);timer=setInterval(next,15000)}
+  start();
+  stage.addEventListener('mouseenter',()=>clearInterval(timer));
+  stage.addEventListener('mouseleave',start);
+  document.getElementById('prevTestimonial').addEventListener('click',()=>{
+    clearInterval(timer);
+    cur=(cur-1+items.length)%items.length;
+    show(cur);
+    start();
+  });
+  document.getElementById('nextTestimonial').addEventListener('click',()=>{
+    clearInterval(timer);
+    next();
+    start();
+  });
+  let sx=0,sy=0;
+  stage.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;clearInterval(timer)},{passive:true});
+  stage.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>44&&Math.abs(dx)>Math.abs(dy)*1.2){dx<0?next():(cur=(cur-1+items.length)%items.length,show(cur))}
+    setTimeout(start,800);
+  },{passive:true});
+}());
+
+/* ── EmailJS Form ── */
+function handleSubmit(e){
+  e.preventDefault();
+  const btn=document.getElementById('submitBtn');
+  const msg=document.getElementById('statusMsg');
+  btn.disabled=true;btn.textContent='שולח…';msg.style.display='block';msg.textContent='שולח פרטים…';
+  emailjs.send('service_2kq8ggn','template_48054rn',{
+    name:document.getElementById('fname').value.trim(),
+    phone:document.getElementById('fphone').value.trim(),
+    status:document.getElementById('fstatus').value.trim()||'לא צוין',
+    note:document.getElementById('fnote').value.trim()||'לא צוין',
+  })
+  .then(()=>{ window.location.href='thankyou.html'; })
+  .catch(()=>{
+    btn.disabled=false;btn.textContent='יראל, בוא נעשה סדר';
+    msg.textContent='הייתה שגיאה בשליחה. נסה שוב.';
+  });
+  return false;
+}
+const benefitRows = document.querySelectorAll('.brow');
+
+const benefitObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('in');
+      benefitObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.2 });
+
+benefitRows.forEach(row => benefitObserver.observe(row));
+/* ── Ticker: duplicate items INSIDE the same track (no duplicate IDs) ── */
+(function(){
+  const ti=document.getElementById('tickerInner');
+  if(!ti) return;
+
+  // Prevent double-duplication if script runs twice
+  if (ti.dataset.duplicated === '1') return;
+
+  const original = ti.innerHTML;
+  ti.innerHTML = original + original;
+  ti.dataset.duplicated = '1';
+}());
+</script>
+<script>
+  const track = document.getElementById('tickerTrack');
+  const original = track.querySelector('.ticker-group');
+
+  while (track.scrollWidth < window.innerWidth * 2) {
+    track.appendChild(original.cloneNode(true));
+  }
+</script>
+</body>
+</html>
